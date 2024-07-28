@@ -2,9 +2,14 @@ const hoursHand = document.querySelector(".hour-hand");
 const minutesHand = document.querySelector(".min-hand");
 const secondsHand = document.querySelector(".second-hand");
 
-const rotate = (elem, degrees) => {
+/**
+ *
+ * @param {HTMLElement} elem
+ * @param {number} degrees
+ */
+function rotate(elem, degrees) {
   elem.style.transform = `rotate(${degrees}deg)`;
-};
+}
 
 function setDate() {
   const now = new Date();

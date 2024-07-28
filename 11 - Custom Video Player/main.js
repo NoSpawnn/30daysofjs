@@ -1,10 +1,21 @@
 const player = document.querySelector(".player");
+
+/** @type {HTMLVideoElement} */
 const video = player.querySelector(".viewer");
+
 const progress = player.querySelector(".progress");
 const progressBar = player.querySelector(".progress__filled");
+
+/** @type {HTMLButtonElement} */
 const toggle = player.querySelector(".toggle");
+
+/** @type {HTMLButtonElement} */
 const skipButtons = player.querySelectorAll("[data-skip]");
+
+/** @type {HTMLInputElement} */
 const ranges = player.querySelectorAll(".player__slider");
+
+/** @type {HTMLButtonElement} */
 const fullscreenButton = player.querySelector(".fullscreen");
 
 let mouseDown = false;
@@ -30,6 +41,9 @@ function handleProgress() {
   progressBar.style.flexBasis = `${percent}%`;
 }
 
+/**
+ * @param {MouseEvent} e
+ */
 function scrub(e) {
   if (!mouseDown) return;
   video.currentTime = (e.offsetX / progress.offsetWidth) * video.duration;

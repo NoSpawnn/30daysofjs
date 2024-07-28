@@ -1,5 +1,9 @@
+/** @type {HTMLCanvasElement} */
 const canvas = document.querySelector("#draw");
+
+/** @type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext("2d");
+
 let hue = 0;
 
 canvas.width = window.innerWidth;
@@ -14,6 +18,9 @@ let lastX = 0;
 let lastY = 0;
 let direction = true;
 
+/**
+ * @param {MouseEvent} e
+ */
 function draw(e) {
   if (!isDrawing) return;
 

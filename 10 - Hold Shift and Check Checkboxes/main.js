@@ -1,6 +1,11 @@
+/** @type {NodeListOf<HTMLInputElement>} */
 const boxes = document.querySelectorAll(".inbox input[type='checkbox']");
 let lastChecked;
 
+/**
+ *
+ * @param {MouseEvent} e
+ */
 function check(e) {
   let betweenShift = false;
 

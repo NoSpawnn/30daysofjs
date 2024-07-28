@@ -4,6 +4,9 @@ function toggleOpen() {
   this.classList.toggle("open");
 }
 
+/**
+ * @param {TransitionEvent} e
+ */
 function toggleActive(e) {
   if (!e.propertyName.includes("flex")) return;
   this.classList.toggle("open-active");
