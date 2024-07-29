@@ -4,6 +4,7 @@ const moles = document.querySelectorAll(".mole");
 let prevHole;
 let timeUp = false;
 let score = 0;
+let canClick = true;
 
 function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -21,6 +22,7 @@ function randomHole(holes) {
 function peekMole() {
   const duration = randomTime(400, 1000);
   const hole = randomHole(holes);
+  canClick = true;
 
   hole.classList.add("up");
 
@@ -33,6 +35,7 @@ function peekMole() {
 function startGame() {
   scoreBoard.textContent = 0;
   timeUp = false;
+  canClick = true;
   score = 0;
 
   peekMole();
@@ -41,12 +44,13 @@ function startGame() {
 }
 
 function bonk(e) {
-  if (!e.isTrusted) return;
+  if (!e.isTrusted || !canClick) return;
 
   score++;
   scoreBoard.textContent = score;
 
   this.parentNode.classList.remove("up");
+  canClick = false;
 }
 
 moles.forEach((mole) => mole.addEventListener("click", bonk));
